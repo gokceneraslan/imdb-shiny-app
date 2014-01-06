@@ -1,4 +1,7 @@
 library(data.table)
 
-imdb <- readRDS('imdbdataset.rds')
-# imdb <- fread('imdbdataset.tsv')
+if (file.exists('imdbdataset.tsv')) {
+  imdb <- fread('imdbdataset.tsv')
+} else {
+  imdb <- readRDS('imdbdataset.rds')
+}
