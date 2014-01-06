@@ -1,6 +1,7 @@
 install.packages(c('devtools', 'stringr'))
 
 library(devtools)
+library(RCurl)
 install_github('hadley/plyr')
 install.packages('reshape2')
 
