@@ -121,7 +121,7 @@ eventname.to.date <- function(event) {
          '9/11' = 2001,
          #'custom' = 'custom',
          'Main' = 1800,
-         'Final'= 1900)
+         'Final'= 1920)
 }
 
 eventname.to.variable <- function(event) {
