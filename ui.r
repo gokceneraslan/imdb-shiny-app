@@ -6,7 +6,7 @@ library(shinyIncubator)
 # Define UI
 shinyUI(fluidPage(
   
-  titlePanel("Impacts of Catastrophic Events on Cinema"),
+  titlePanel("The Impact of Catastrophic Events on Cinema"),
   
   sidebarLayout(
     
