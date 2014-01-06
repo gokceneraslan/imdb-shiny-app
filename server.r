@@ -113,14 +113,14 @@ keywords.to.wpsearch <- function (keywords) {
 }
 
 eventname.to.date <- function(event) {
-  if (is.null(event) || is.na(event)) return(1900)
+  if (is.null(event) || is.na(event)) return(1800)
   switch(event, 
          'World War 2' = 1937,
          'Great Depression' = 1929,
          'Vietnam War' = 1956,
          '9/11' = 2001,
          #'custom' = 'custom',
-         'Main' = 1900,
+         'Main' = 1800,
          'Final'= 1900)
 }
 
