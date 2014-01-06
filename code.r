@@ -4,7 +4,7 @@ library(plyr)       #must be the latest master branch from github (to fix a segf
 library(reshape2)
 
 
-if (!file.exists('imdbdataset.rds.xz')) {
+if (!file.exists('imdbdataset.rds')) {
   
   #TSV files preprocessed with Google Refine
   movies <- fread('imdb-export-Movies.tsv') #much faster than read.table
@@ -55,17 +55,18 @@ if (!file.exists('imdbdataset.rds.xz')) {
   ww2.regex <- '\\b(Second World War|WW(II|2)|World War (2|II)|Nazi|Hitler|concetration camp|Auschwitz|Stalingrad|Pearl Harbor|1939-1945|Normandy landing|D-day)\\b' # "|" for OR operation, \\b is for word boundries
   sep11.regex <- '\\b(9/11|September 11|Bin Laden)\\b'
   depression.regex <- '\\b(Great Depression|Stock market crash of 1929|Black Tuesday)\\b'
-  vietnam.regex <- '\\b(Vietnam War|Second Indochina War)\\b'
+  vietnam.regex <- '\\b(Vietnam War|Second Indochina War|Viet Cong)\\b'
   
   imdb[, WW2:=grepl(ww2.regex, Plot, ignore.case=T, perl=T), by=Key]
   imdb[, SEP11:=grepl(sep11.regex, Plot, ignore.case=T, perl=T), by=Key]
   imdb[, DEP:=grepl(depression.regex, Plot, ignore.case=T, perl=T), by=Key]
   imdb[, VIETNAM:=grepl(vietnam.regex, Plot, ignore.case=T, perl=T), by=Key]
   
-  saveRDS(imdb, file='imdbdataset.rds.xz', compress='xz')
+  saveRDS(imdb, file='imdbdataset.rds')
+  #write.csv(imdb, 'imdbdataset.tsv', row.names=F)
   
 } else {
- imdb <- readRDS('imdbdataset.rds.xz') 
+ imdb <- readRDS('imdbdataset.rds') 
 }
 
 plot.Genre.Year <- function(df) {
