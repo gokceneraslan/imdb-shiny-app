@@ -75,7 +75,7 @@ plot.Final.Chart <- function(df) {
   genre.counts <- data.table(melt(dcast(df, ...~Event, fill=0), id='Year', value.name='EventCount', variable.name='Event')) #include counts of ALL genres to make nPlot happy
   
   variable.to.eventname <- function(var) {
-    switch(var, 
+    switch(as.character(var), 
            'WW2' = 'World War 2',
            'DEP' = 'Great Depression',
            'VIETNAM' = 'Vietnam War',
@@ -114,7 +114,7 @@ keywords.to.wpsearch <- function (keywords) {
 
 eventname.to.date <- function(event) {
   if (is.null(event) || is.na(event)) return(1800)
-  switch(event, 
+  switch(as.character(event), 
          'World War 2' = 1937,
          'Great Depression' = 1929,
          'Vietnam War' = 1956,
@@ -126,7 +126,7 @@ eventname.to.date <- function(event) {
 
 eventname.to.variable <- function(event) {
   if (is.null(event) || is.na(event)) return('main')
-  switch(event, 
+  switch(as.character(event), 
          'World War 2' = 'WW2',
          'Great Depression' = 'DEP',
          'Vietnam War' = 'VIETNAM',
