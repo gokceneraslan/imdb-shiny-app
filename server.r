@@ -379,7 +379,7 @@ output$trendFinal <- renderChart({
     "The same pattern holds for the World War 2(1939-1945) which happaned after The Great Depression. The total number of films produced about second world war has increased substantially after 2000s but the percent of such films were much bigger during the years following the war."
   })
   output$SepText <- renderUI({
-    "Finally, 9/11 attacks which happened in September 11, 2001, has been mentined directly or indirectly especially in many Hollywood films."
+    "Finally, 9/11 attacks which happened in September 11, 2001, has been mentioned directly or indirectly especially in many Hollywood films."
   })
   output$finalText <- renderUI({
     "Among these four historically important happenings, World War 2 is the one which has had the most influence over the produced films."
